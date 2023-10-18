@@ -1,0 +1,16 @@
+.dropdown {
+    text-align: left;
+    margin: 10px 0;
+    margin-left: 10px;
+    font-size: 20px;
+
+  }
+  
+  .dropdown select {
+    padding: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+    background-color: rgb(55, 226, 226);
+    color: black;
+  } 
+
