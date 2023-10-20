@@ -6,14 +6,13 @@ import 'react-tooltip/dist/react-tooltip.css'
 import {Tooltip} from 'react-tooltip';
 
 
-function ModelSelector() {
-    const [model, setModel] = useState('Model1');
+function ModelSelector({ model, setModel }) {
     const [description, setDescription] = useState('Description for Model 1');
     
     const modelDescriptions = {
-        Model1: 'Description for Model1',
-        Model2: 'Description for Model2',
-        Model3: 'Description for Model3',
+       Section1: 'Business Description',
+       Section1A: 'Main Risks',
+       Section7: 'Management Discussions',
         // add as many models as you need
       };
 
@@ -23,17 +22,16 @@ function ModelSelector() {
 
         const modelDescription = modelDescriptions[event.target.value];
         setDescription(modelDescription ? modelDescription : '');
-        toast.success(`Model selected: ${event.target.value}`);
+        toast.success(`Selected model: ${event.target.value}`);
     };
 
     return (
         <div className="dropdown">
-            <Tooltip id="mi" />
           <label htmlFor="models">Choose a model: </label>
           <select name="models" id="models" value={model} onChange={handleChange}>
-            <option value="Model1">Section 1</option>
-            <option value="Model2">Section 1A</option>
-            <option value="Model3" data-tooltip-content="Management Discussion" data-tooltip-id="Section7">Section 7</option>
+            <option value="Section1">Section 1</option>
+            <option value="Section1A">Section 1A</option>
+            <option value="Section7">Section 7</option>
           </select>
           <ToastContainer />
           <p>{description}</p>
