@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import ModelSelector from './ModelSelector';
 import Plots from './Plots';
@@ -29,17 +28,6 @@ function App() {
       <header className="App-header">
         <Plots dataForPlot={fetchedData[model]} model={model}/>
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div></> ) : <div>Loading...</div> 
 }
