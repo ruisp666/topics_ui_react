@@ -5,7 +5,8 @@
 .App-title {
   text-align: left;
   font-size: calc(10px + 1.2*vmin);
-  background-color:white;
+  background-color:'#25262a';
+  margin: 10px;
 }
 
 .App-logo {
@@ -15,7 +16,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 30s linear;
+    animation: App-logo-spin infinite 10s linear;
   }
 }
 
@@ -27,7 +28,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color:'#25262a';
 }
 
 .App-link {
