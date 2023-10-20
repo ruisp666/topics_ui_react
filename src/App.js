@@ -1,8 +1,9 @@
 import './App.css';
-import ModelSelector from './ModelSelector';
-import Plots from './Plots';
+import ModelSelector from './components/ModelSelector/ModelSelector';
+import Plots from './components/Plots/Plots';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 
 const URL_API = 'http://127.0.0.1:8037/get_topics_sentiment';
 
@@ -12,24 +13,46 @@ function App() {
 
   useEffect(() => {
     const fetchDataOnce = async () => {
-      const response = await axios.get(URL_API, {params: { freq: '1y' }});
-      setFetchedData(response.data); // Now we have all the data for all the models
+      try {
+        const response = await axios.get(URL_API, { params: { freq: '1y' } });
+        setFetchedData(response.data);
+      } catch (error) {
+        if (error.response) {
+          // The request was made and the server responded with status code out of the range of 2xx
+          // Show a toast on error
+          toast.error(`Error: ${error.response.status}, ${error.response.data.error}`);
+        } else if (error.request) {
+          // The request was made but no response was received
+          // Likely case: service is not running or unreachable. Show a toast.
+          toast.error("Service is not running or can't be reached. Please ensure that the service is running and try again.");
+        } else {
+          // Something else happened while setting up the request and triggered an error
+          toast.error('An unexpected error occurred');
+        }
+      }
     };
-
     fetchDataOnce();
-  }, []); 
+  }, []);
   
-  return fetchedData ? (
-    <><div className="App-title">
+  return (
+    <div className="App">
+      <ToastContainer /> 
+      {fetchedData ? (
+    <>
+    <div className="App-title">
       <h1>SEC Filings: Topics and sentiment</h1>
     </div>
-    <div className="App">
+    
     <ModelSelector model={model} setModel={setModel}/>
       <header className="App-header">
         <Plots dataForPlot={fetchedData[model]} model={model}/>
-        <img src={logo} className="App-logo" alt="logo" />
       </header>
-    </div></> ) : <div>Loading...</div> 
-}
+    </>
+    )  : (<div>Loading data...</div>
+    )}
+    </div>
+  )
+      }
 
-export default App;
+
+export default App; 
