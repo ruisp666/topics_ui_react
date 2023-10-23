@@ -5,7 +5,7 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 
-const URL_API = 'http://127.0.0.1:8037/get_topics_sentiment';
+const URL_API = process.env.REACT_APP_API;
 
 function App() {
   const [model, setModel] = useState('Section1'); // Default model
