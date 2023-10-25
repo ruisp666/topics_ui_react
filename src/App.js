@@ -14,7 +14,9 @@ function App() {
   useEffect(() => {
     const fetchDataOnce = async () => {
       try {
-        const response = await axios.get(URL_API, { params: { freq: '1y' } });
+        const response = await axios.get(URL_API, { params: { freq: '1y' }, headers: {
+          'API-Key': process.env.GCP_BACKEND_API_KEY
+      } }, );
         setFetchedData(response.data);
       } catch (error) {
         if (error.response) {
