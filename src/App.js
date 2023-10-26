@@ -15,7 +15,7 @@ function App() {
     const fetchDataOnce = async () => {
       try {
         const response = await axios.get(URL_API, { params: { freq: '1y' }, headers: {
-          'API-Key': process.env.GCP_BACKEND_API_KEY
+          'API-Key': process.env.GCP_BACKEND_API_KEY, withCredentials: true
       } }, );
         setFetchedData(response.data);
       } catch (error) {
