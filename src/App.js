@@ -5,8 +5,7 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 
-const URL_API = process.env.REACT_APP_API;
-
+const URL_API = process.env.REACT_APP_API_URL;
 function App() {
   const [model, setModel] = useState('Section1'); // Default model
   const [fetchedData, setFetchedData] = useState(null); // Data fetched from server
@@ -15,7 +14,7 @@ function App() {
     const fetchDataOnce = async () => {
       try {
         const response = await axios.get(URL_API, { params: { freq: '1y' }, headers: {
-          'API-Key': process.env.GCP_BACKEND_API_KEY, withCredentials: true
+          'API-Key': process.env.REACT_APP_GCP_BACKEND_API_KEY
       } }, );
         setFetchedData(response.data);
       } catch (error) {
