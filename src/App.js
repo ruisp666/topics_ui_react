@@ -6,6 +6,8 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 
 const URL_API = process.env.REACT_APP_API_URL;
+console.log(URL_API)
+console.log(process.env)
 function App() {
   const [model, setModel] = useState('Section1'); // Default model
   const [fetchedData, setFetchedData] = useState(null); // Data fetched from server
