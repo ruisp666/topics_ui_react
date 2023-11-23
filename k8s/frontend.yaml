@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-ui-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react-ui
+  template:
+    metadata:
+      labels:
+        app: react-ui
+    spec:
+      containers:
+      - name: react-ui
+        image: 192.168.49.1:8050/sec_topics_ui # Use the minikube cluster address when running a local registry
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            cpu: '100m'
+            memory: '100Mi'
+          limits:
+            cpu: '200m'
+            memory: '300Mi'
