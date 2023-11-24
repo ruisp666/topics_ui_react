@@ -10,7 +10,7 @@ export default function SideNav() {
         href="/"
       >
       </Link>
-      <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
+      <div className="flex grow flex-row center-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
         <NavLinks />
       </div>
     </div>
