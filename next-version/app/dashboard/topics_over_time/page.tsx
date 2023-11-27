@@ -10,8 +10,8 @@ import { ToastContainer, toast } from 'react-toastify';
 
 
 
-const URL_API: string|undefined = process.env.REACT_APP_API_URL;
-console.log('banana')
+const URL_API: string|undefined = process.env.NEXT_PUBLIC_API_URL;
+
 export default function Page() {
   const [model, setModel] = useState('Section1'); // Default model
   const [fetchedData, setFetchedData] = useState(null); // Data fetched from server
@@ -20,7 +20,7 @@ export default function Page() {
     const fetchDataOnce = async () => {
       try {
         const response: AxiosResponse<any, any> = await axios.get(URL_API || '', { params: { freq: '1y' }, headers: {
-          'API-Key': process.env.REACT_APP_GCP_BACKEND_API_KEY
+          'API-Key': process.env.NEXT_PUBLIC_GCP_BACKEND_API_KEY
       } }, );
         setFetchedData(response.data);
       } catch (error : any) {
