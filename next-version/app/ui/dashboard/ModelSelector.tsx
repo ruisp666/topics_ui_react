@@ -28,14 +28,17 @@ export default function ModelSelector({ model, setModel }: ModelSelectorProp) {
     };
 
     return (
-        <div className="dropdown">
-          <label htmlFor="models">Choose a model: </label>
-          <select name="models" id="models" value={model} onChange={handleChange}>
-            <option value="Section1">Section 1</option>
-            <option value="Section1A">Section 1A</option>
-            <option value="Section7">Section 7</option>
+      <div>
+          <label htmlFor="models" > Choose a model: </label>
+         <div className="rounded-xl">
+          <select name="models" className="rounded-xl"
+           id="models" value={model} onChange={handleChange}>
+            {Object.keys(modelDescriptions).map(key => (
+          <option value={key} key={key}>{key}</option>
+        ))}
           </select>
-          <p>{description}</p>
+          </div>
+        <p>{description}</p>
         </div>
       );
 } 
