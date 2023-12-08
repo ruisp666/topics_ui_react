@@ -1,6 +1,5 @@
 
 'use client';
-import { Metadata } from "next";
 import ModelSelector from "@/app/ui/dashboard/ModelSelector";
 import Plots from "@/app/ui/plots/plots";
 import {useState, useEffect} from 'react';

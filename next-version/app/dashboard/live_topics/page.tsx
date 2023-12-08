@@ -1,9 +1,16 @@
-import { Metadata } from "next";
+'use client';
+import SearchBox from "@/app/ui/dashboard/Search";
 
-export const metadata: Metadata = {
-    title: 'Topis on URL',
-  };
 
 export default function Page() {
-    return <p>Placeholder for live_topics using url search</p>;
-}
+    const onSearch = (searchTerm: string) => {
+      console.log(searchTerm);
+    };
+    return (
+    <div>
+      <SearchBox onSearch={onSearch}/>
+      <p>{}</p>
+    </div>
+     );
+
+};

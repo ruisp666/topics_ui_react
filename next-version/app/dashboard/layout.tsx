@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     template: '%s | SEC TOPICS Dashboard',
     default: 'Acme Dashboard',
   },
-  description: 'The official Next.js Learn Dashboard built with App Router.',
+  description: 'SEC topics query engine.',
   metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
 };
 

@@ -85,7 +85,7 @@ export default function ModelSelector({ model, setModel }: ModelSelectorProp) {
        {modalBody}
         </Modal>
           <Tooltip label={description} fontSize="md" placement="bottom" width='200px' whiteSpace='normal'>
-            <p className="text-left text-xl font-semibold text-emph text-gray-800">Hover for a description</p>
+            <p className="text-left text-xl font-semibold text-gray-800">Hover for a description</p>
           </Tooltip>
         </div>
       );
